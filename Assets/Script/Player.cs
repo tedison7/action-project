@@ -8,10 +8,13 @@ public class Player : MonoBehaviour
     private Rigidbody charRigidbody;
     private Animator charAnimator;
 
+    private bool IsAttack;
+
     void Start()
     {
         charRigidbody = GetComponent<Rigidbody>();
         charAnimator = GetComponentInChildren<Animator>();
+        IsAttack = false;
     }
 
     void Update()
@@ -27,5 +30,14 @@ public class Player : MonoBehaviour
         transform.LookAt(transform.position + inputDir);
 
         charAnimator.SetBool("IsRun", inputDir != Vector3.zero);
+
+        if (Input.GetButton("Attack"))
+            DoAttack();
+    }
+
+    void DoAttack()
+    {
+        charAnimator.SetBool("IsAttack", true);
+        charRigidbody.velocity = Vector3.zero;
     }
 }
