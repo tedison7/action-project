@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
         Vector3 inputDir = new Vector3(hAxis, 0, vAxis).normalized;
 
+        //transform.position = transform.position + inputDir * moveSpeed * Time.deltaTime;
         charRigidbody.velocity = inputDir * moveSpeed;
 
         transform.LookAt(transform.position + inputDir);
