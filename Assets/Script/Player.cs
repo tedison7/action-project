@@ -105,7 +105,6 @@ public class Player : MonoBehaviour
     {
         Debug.Log("AttackEnd");
 
-
         float hAxis = Input.GetAxisRaw("Horizontal");
         float vAxis = Input.GetAxisRaw("Vertical");
         if (hAxis != 0.0f || vAxis != 0.0f )
